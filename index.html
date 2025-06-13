@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Portfolio</title>
+</head>
+
+<!-- Place this just before </body> -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById('contactForm');
+        const errorEl = document.getElementById('formError');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!name || !email || !message) {
+                errorEl.textContent = "All fields are required.";
+            } else if (!emailRegex.test(email)) {
+                errorEl.textContent = "Please enter a valid email address.";
+            } else {
+                errorEl.textContent = "";
+                alert("Message sent successfully!");
+                form.reset();
+            }
+        });
+    });
+</script>
+
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">Lokesh Rella</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="overlay">
+            <div class="hero-content">
+                <h1>Lokesh Rella</h1>
+                <h2>Web Developer</h2>
+                <a href="#work" class="cta-button">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="projects" id="work">
+        <h2 class="section-title">My Projects</h2>
+        <div class="project-list">
+            <div class="project-card">
+                <h3>Expense-tracker-ai</h3>
+                <p>Expense Tracker is a smart budgeting tool that lets users log, categorize, and monitor their daily
+                    expenses. With intuitive visuals, real-time analytics, and monthly summaries, it empowers users to
+                    manage finances effectively. Ideal for personal budgeting, it supports expense insights, goal
+                    setting, and smarter financial decisions—all in one place.</p>
+                <a href="https://github.com/Lokesh-rella-042/Expense-tracker-ai" target="_blank">View on GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Todo List</h3>
+                <p>Todo List is a simple yet powerful productivity app that helps users organize tasks efficiently. Add,
+                    edit, or delete tasks with ease, set priorities, and track progress in real time. With a clean
+                    interface and responsive design, it’s perfect for managing daily goals, boosting focus, and staying
+                    on top of work.
+                </p>
+                <a href="https://github.com/Lokesh-rella-042/todolist" target="_blank">View on GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Video-Recoder</h3>
+                <p>Video Recorder is a lightweight web app that enables users to capture high-quality video directly
+                    from their browser. With intuitive controls, it supports start, pause, and download functionality.
+                    Ideal for creating quick demos, tutorials, or personal recordings, it requires no installation—just
+                    one click to record, save, and share effortlessly.</p>
+                <a href="https://github.com/Lokesh-rella-042/Video-Recoder" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="./images/lokeshrella.jpg" alt="Profile Picture of Lokesh Rella" />
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>
+                    I'm Lokesh Rella, a passionate Web Developer with a strong foundation in HTML, CSS, JavaScript, and
+                    React. I love building clean, interactive, and responsive websites. I'm always exploring new tech,
+                    eager to grow, and driven by the power of turning ideas into digital reality.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2>Contact Me</h2>
+            <form id="contactForm" novalidate>
+                <input type="text" id="name" placeholder="Your Name" />
+                <input type="email" id="email" placeholder="Your Email" />
+                <textarea id="message" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+                <p class="form-error" id="formError"></p>
+            </form>
+        </div>
+    </section>
+
+
+
+</body>
+
+</html>
